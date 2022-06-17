@@ -10,7 +10,7 @@ const Form = (props) => {
 
 
     const handleChange = (event) => {
-        console.log(event);
+        // console.log(event);
         setSearchValue(event.target.form[0].value);
     }
 
@@ -24,7 +24,7 @@ const Form = (props) => {
             onSubmit={
                 (event) => {
                     props.handleSubmit(event, searchValue)
-                    console.log(event.target[0].value);
+                    // console.log(event.target[0].value);
                     // setSearchValue(event.target[0].value)
 
                 }

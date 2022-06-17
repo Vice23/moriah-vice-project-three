@@ -12,7 +12,34 @@ function App() {
   const [books, setBooks] = useState([]);
 
   // piece of state to represent user input
-  const [userInput, setUserInput] = useState('');
+  const [userInput, setUserInput] = useState(null);
+
+
+  // side effect to call the API
+  useEffect(() => {
+    if (userInput) {
+    axios({
+      baseURL: 'http://openlibrary.org/',
+      url: '/search.json',
+      method: 'GET',
+
+      // API params defined
+      params: {
+        q: userInput,
+      }
+    })
+      .then((jsonData) => {
+
+        // take the data that is returned from the API and store it in state
+        setBooks(jsonData.data.docs);
+        console.log(books);
+      })
+    }
+  }, [userInput])
+
+  // defining the function that will be passed as props to the Form 
+  // when the function is called - by Form -- it will update state
+
 
   // this event will handle the use clicking add book
   const generateUserInput = (event, userInput) => {
@@ -21,35 +48,8 @@ function App() {
     event.preventDefault();
 
     console.log("user input:", userInput);
-    setUserInput(" ");
+    setUserInput(userInput);
   }
-
-
-
-  // side effect to call the API
-  useEffect(() => {
-    axios({
-      baseURL: 'http://openlibrary.org/',
-      url: '/search.json',
-      method: 'GET',
-
-      // API params defined
-      params: {
-        q: "Howl's Moving Castle"
-      }
-    })
-      .then((jsonData) => {
-
-        // take the data that is returned from the API and store it in state
-        setBooks(jsonData.data.docs);
-        console.log(jsonData.data.docs);
-      })
-
-  }, [])
-
-  // defining the function that will be passed as props to the Form 
-  // when the function is called - by Form -- it will update state
-
 
   return (
     <div className="App">
