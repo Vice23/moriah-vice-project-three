@@ -19,7 +19,7 @@ function App() {
   useEffect(() => {
     if (userInput && userInput !== null && userInput !== '') {
     axios({
-      baseURL: 'http://openlibrary.org/',
+      baseURL: 'https://openlibrary.org/',
       url: '/search.json',
       method: 'GET',
 
