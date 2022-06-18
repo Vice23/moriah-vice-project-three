@@ -47,15 +47,18 @@ function App() {
     event.preventDefault();
 
     console.log("user input:", userInput);
+    alert(`You've requested results for '${userInput}'! Please wait while we load your results...`);
     setUserInput(userInput);
   }
 
   return (
     <div className="wrapper">
-      <h1 className="heading">Book Buddy <span className="book-icon">📖</span> </h1>
+      <header>
+        <h1 className="heading">Book Buddy <span className="book-icon">📖</span> </h1>
+      </header>
       
-
       <Form className="form" handleSubmit={generateUserInput} />
+      
       <DisplayBooks books={books} />
 
 

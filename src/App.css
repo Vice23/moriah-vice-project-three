@@ -1,8 +1,27 @@
+@import url('https://fonts.googleapis.com/css2?family=Glegoo&family=Prompt:wght@500&family=Signika+Negative:wght@300&display=swap');
+
+
 body {
   background-color: #FFE08A;
   color: #4B296B;
   text-align: center;
 }
+
+body, input[type=text] {
+  font-family: 'Signika Negative', sans-serif;
+}
+
+h1, h2, h3  {
+  font-family: 'Prompt', sans-serif;
+}
+
+
+h4,
+h5,
+h6 {
+  font-family: 'Glegoo', serif;
+}
+
 
 .wrapper {
   max-width: 1260px;
@@ -20,22 +39,25 @@ body {
   justify-content: center;
   align-items: center;
   width: 100%;
-  margin-top:5%;
+  margin: .5rem 0 2rem 0;
+}
+
+.input-and-search input {
+  border: none;
+  width: 11rem;
+  padding: .5rem .5rem;
 }
 
 .input-and-search button {
-  border: none;
-}
-
-.input-and-search input, .input-and-search button {
-  padding: 2% 4%;
+  padding: .3rem 2rem;
   border: none;
 }
 
 button, .cta {
   background-color: #61dafb;
-  font-weight: bold;
   color: #4B296B;
+  font-family: 'Glegoo', serif;
+  font-weight: bold;
 }
 
 .no-results, .book-container {
@@ -65,9 +87,9 @@ button, .cta {
 
 /* Media Queries for smaller screens */
 
-@media (max-width: 480px) {
-  
+@media (max-width: 800px) {
+
   .book-container {
-      width: 100%;
+    width: 100%;
   }
 }

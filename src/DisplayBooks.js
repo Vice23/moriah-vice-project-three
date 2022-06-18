@@ -6,12 +6,12 @@ const DisplayBooks = (props) => {
 
     return (
         <section>
-            <h2>Your Results Will Appear Below </h2>
+            <h2>Results Below </h2>
             {
                 props.books.length === 0 ? (
-                    <p className="no-results">No results 🥺 </p>
+                    <p className="no-results">No results 📃</p>
                 ) : (
-                    <div className="search-results">
+                    <section className="search-results">
                         {
                             props.books.map((book) => {
 
@@ -50,7 +50,7 @@ const DisplayBooks = (props) => {
                                 )
                             })
                         }
-                    </div>
+                    </section>
 
                 )
             }
