@@ -6,12 +6,15 @@ const Form = (props) => {
     console.log('form rendered');
 
     // initializing state to check when form has been changed
-    const [searchValue, setSearchValue] = useState('');
+    const [searchValue, setSearchValue] = useState('placeholder');
+
+    console.log(props);
 
 
     const handleChange = (event) => {
-        // console.log(event);
+        console.log(event.target.form[0].value);
         setSearchValue(event.target.form[0].value);
+
     }
 
     

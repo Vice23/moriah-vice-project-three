@@ -17,7 +17,7 @@ function App() {
 
   // side effect to call the API
   useEffect(() => {
-    if (userInput) {
+    if (userInput && userInput !== null) {
     axios({
       baseURL: 'http://openlibrary.org/',
       url: '/search.json',
@@ -42,7 +42,7 @@ function App() {
 
 
   // this event will handle the use clicking add book
-  const generateUserInput = (event, userInput) => {
+  const generateUserInput = function(event, userInput) {
     // create event listener
     // prevent default refresh bahaviour from
     event.preventDefault();
@@ -52,11 +52,12 @@ function App() {
   }
 
   return (
-    <div className="App">
-      <h1>Book Buddy 📚</h1>
+    <div className="wrapper">
+      <h1 className="heading">Book Buddy <span className="book-icon">📖</span> </h1>
+      
 
-      <Form handleSubmit={generateUserInput} />
-      <DisplayBooks />
+      <Form className="form" handleSubmit={generateUserInput} />
+      <DisplayBooks books={books} />
 
 
     </div>
