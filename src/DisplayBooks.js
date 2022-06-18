@@ -46,6 +46,7 @@ const DisplayBooks = (props) => {
                                                         <a className="cta" href={"https://www.google.com/search?tbm=bks&q=" + book.title + " by " + book.author_name}>Find Out More</a>
                                                     </p>
                                         }
+                                        <button>Add To My Bookshelf</button>
                                     </div>
                                 )
                             })

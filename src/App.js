@@ -5,6 +5,10 @@ import DisplayBooks from './DisplayBooks.js'
 import axios from 'axios';
 import { useEffect, useState } from 'react';
 
+// importing firebase components
+import firebase from './firebase.js'
+import { getDatabase, ref, onValue, push, remove } from 'firebase/database';
+
 function App() {
 
   console.log('App rendered');
@@ -43,12 +47,19 @@ function App() {
   // this event will handle the use clicking add book
   const generateUserInput = function(event, userInput) {
     // create event listener
-    // prevent default refresh bahaviour from
+    // prevent default refresh bahaviour
     event.preventDefault();
 
     console.log("user input:", userInput);
-    alert(`You've requested results for '${userInput}'. Please wait while we load your results...`);
-    setUserInput(userInput);
+
+    if(userInput && userInput !== '') {
+      alert(`You've requested results for '${userInput}'. Please wait while we load your results...`);
+      setUserInput(userInput);
+    } else {
+      alert(`You entered '${userInput}' - an invalid search. Please try again`);
+      setUserInput(userInput);
+    }
+    
   }
 
   return (
