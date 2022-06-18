@@ -17,7 +17,7 @@ function App() {
 
   // side effect to call the API
   useEffect(() => {
-    if (userInput && userInput !== null) {
+    if (userInput && userInput !== null && userInput !== '') {
     axios({
       baseURL: 'http://openlibrary.org/',
       url: '/search.json',
@@ -29,13 +29,12 @@ function App() {
       }
     })
       .then((jsonData) => {
-
         // take the data that is returned from the API and store it in state
         setBooks(jsonData.data.docs);
         console.log(books);
       })
     }
-  }, [userInput])
+  }, [userInput, books])
 
   // defining the function that will be passed as props to the Form 
   // when the function is called - by Form -- it will update state

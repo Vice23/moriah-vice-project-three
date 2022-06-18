@@ -6,9 +6,8 @@ body {
 
 .wrapper {
   max-width: 1260px;
-  width: 80%;
+  width: 85%;
   margin: 0 auto;
-
 }
 
 
@@ -16,25 +15,59 @@ body {
   scale: 200%;
 }
 
-
-.search-results {
-  /* min-height: 100vh; */
+.input-and-search {
   display: flex;
-  flex-wrap: wrap;
-  /* flex-direction: column;
-  align-items: flex-start;
-  justify-content: center; */
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin-top:5%;
 }
 
-.App-link {
-  color: #61dafb;
+.input-and-search button {
+  border: none;
+}
+
+.input-and-search input, .input-and-search button {
+  padding: 2% 4%;
+  border: none;
+}
+
+button, .cta {
+  background-color: #61dafb;
+  font-weight: bold;
+  color: #4B296B;
+}
+
+.no-results, .book-container {
+  background-color: RGB(255, 255, 255, 0.5);
+  padding: 5%;
+  margin: 5%;
+  border-radius: 10px;
 }
 
 /* Book Display Area */
-.book-container {
-  background-color: #61dafb;
-  padding: 5%;
-  margin: 5%;
+
+.search-results {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.book-container  {
   width: 30%;
-  border-radius: 50px;
+}
+
+.cta {
+  text-decoration: none;
+  padding: 4% 20%;
+  border-radius: 5px;
+}
+
+
+/* Media Queries for smaller screens */
+
+@media (max-width: 480px) {
+  
+  .book-container {
+      width: 100%;
+  }
 }

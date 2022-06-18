@@ -6,7 +6,7 @@ const Form = (props) => {
     console.log('form rendered');
 
     // initializing state to check when form has been changed
-    const [searchValue, setSearchValue] = useState('placeholder');
+    const [searchValue, setSearchValue] = useState('');
 
     console.log(props);
 
@@ -17,7 +17,7 @@ const Form = (props) => {
 
     }
 
-    
+
 
 
 
@@ -27,23 +27,24 @@ const Form = (props) => {
             onSubmit={
                 (event) => {
                     props.handleSubmit(event, searchValue)
-                    // console.log(event.target[0].value);
-                    // setSearchValue(event.target[0].value)
 
                 }
             }
 
         >
-            <label htmlFor="userSearch">Search Books:</label>
-            <input
-                type="text" id="userSearch"
+            <label htmlFor="userSearch">Search Books by Title:</label>
 
-                onChange={handleChange}
-                value={searchValue}
-            >
-            </input>
+            <div className="input-and-search">
+                <input
+                    type="text" id="userSearch"
 
-            <button >Search!</button>
+                    onChange={handleChange}
+                    value={searchValue}
+                >
+                </input>
+
+                <button >Search!</button>
+            </div>
 
         </form>
     )
