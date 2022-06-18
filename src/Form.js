@@ -35,7 +35,7 @@ const Form = (props) => {
                     >
                     </input>
 
-                    <button >Search!</button>
+                    <button >Search</button>
                 </div>
 
             </form>

@@ -47,7 +47,7 @@ function App() {
     event.preventDefault();
 
     console.log("user input:", userInput);
-    alert(`You've requested results for '${userInput}'! Please wait while we load your results...`);
+    alert(`You've requested results for '${userInput}'. Please wait while we load your results...`);
     setUserInput(userInput);
   }
 
