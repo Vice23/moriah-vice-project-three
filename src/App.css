@@ -1,6 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Glegoo&family=Prompt:wght@500&family=Signika+Negative:wght@300&display=swap');
 
 
+/* general styling */
+
 body {
   background: #FBD046;
   background: -webkit-linear-gradient(top left, #FBD046, #EA7D4D);
@@ -8,17 +10,23 @@ body {
   background: linear-gradient(to bottom right, #FBD046, #EA7D4D);
   color: #4B296B;
   min-height: 100vh;
+  font-size: 120%;
 }
 
-body, input[type=text] {
+body,
+input[type=text] {
   font-family: 'Signika Negative', sans-serif;
 }
 
-header, form, .results {
+header,
+form,
+.results {
   text-align: center;
 }
 
-h1, h2, h3  {
+h1,
+h2,
+h3 {
   font-family: 'Prompt', sans-serif;
 }
 
@@ -29,6 +37,11 @@ h6 {
   font-family: 'Glegoo', serif;
 }
 
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
 
 .wrapper {
   max-width: 1260px;
@@ -36,11 +49,61 @@ h6 {
   margin: 0 auto;
 }
 
+/* Header */
 
 .book-icon {
   scale: 200%;
 }
 
+/* My Bookshelf */
+
+.bookshelf-btn {
+  /* background-color: transparent; */
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
+  font-family: 'Prompt', sans-serif;
+  font-size: 1.6rem;
+  color: #4B296B;
+}
+
+.cta-bookshelf,
+.remove-btn {
+  text-decoration: none;
+  padding: 0 2%;
+  border-radius: 5px;
+  border:none;
+}
+
+.remove-btn {
+  font-family: 'Glegoo', serif;
+
+  cursor: pointer;
+  background-image: linear-gradient(to right top, #ff2100, #ff6500, #fc9000, #f5b600, #ebd812);
+  
+}
+
+.remove-btn:hover, .remove-btn:focus {
+  background-image: linear-gradient(to right top, #ff2100, #fa4400, #f55900, #f06a03, #eb7912);
+  color: white;
+  font-weight: bold;
+}
+
+/* Bookshelf, form, and results 'button' CTA */
+.bookshelf a,
+form button,
+.cta {
+  background: #A7BCEF;
+  background: -webkit-linear-gradient(bottom right, #A7BCEF, #42D0FF);
+  background: -moz-linear-gradient(bottom right, #A7BCEF, #42D0FF);
+  background: linear-gradient(to top left, #A7BCEF, #42D0FF);
+  color: #4B296B;
+  font-family: 'Glegoo', serif;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+/* Form */
 
 .input-and-search {
   display: flex;
@@ -61,34 +124,23 @@ h6 {
   border: none;
 }
 
-form button, .cta {
-  background: #A7BCEF;
-  background: -webkit-linear-gradient(bottom right, #A7BCEF, #42D0FF);
-  background: -moz-linear-gradient(bottom right, #A7BCEF, #42D0FF);
-  background: linear-gradient(to top left, #A7BCEF, #42D0FF);
-  color: #4B296B;
-  font-family: 'Glegoo', serif;
-  font-weight: bold;
-  cursor: pointer;
-}
+/* Book Display */
 
-
-
-.no-results, .book-container {
+.no-results,
+.book-container, .bookshelf-item {
   background-color: RGB(255, 255, 255, 0.5);
   padding: 5%;
   margin: 5%;
   border-radius: 10px;
 }
 
-/* Book Display Area */
 
 .search-results {
   display: flex;
   flex-wrap: wrap;
 }
 
-.book-container  {
+.book-container {
   width: 30%;
 }
 
@@ -111,9 +163,10 @@ form button, .cta {
 }
 
 
-.book-container button:hover, .book-container button:focus {
-    background: linear-gradient(90deg, rgba(252, 176, 69, 1) 0%, rgba(252, 250, 163, 1) 50%, rgba(252, 176, 69, 1) 100%);
-    animation: shake 2s ease;
+.book-container button:hover,
+.book-container button:focus {
+  background: linear-gradient(90deg, rgba(252, 176, 69, 1) 0%, rgba(252, 250, 163, 1) 50%, rgba(252, 176, 69, 1) 100%);
+  animation: shake 2s ease;
 }
 
 @keyframes shake {
