@@ -1,11 +1,26 @@
+import firebase from './firebase.js';
+import { getDatabase, push, ref } from "firebase/database";
+
+import { useState, useEffect } from 'react';
 
 const DisplayBooks = (props) => {
     console.log('Rendered DisplayBooks component');
-    console.log("from DisplayBooks: ");
     console.log(props);
 
+
+    // storing a book of interest in the database ('bookshelf')
+    const handleAddBook = (bookObject) => {
+        console.log("====handleAddBook in progress====");
+        console.log(bookObject);
+
+        const database = getDatabase(firebase);
+        const dbRef= ref(database);
+
+        push(dbRef, bookObject);
+    }
+
     return (
-        <section>
+        <section className="results">
             <h2>Results Below </h2>
             {
                 props.books.length === 0 ? (
@@ -46,7 +61,7 @@ const DisplayBooks = (props) => {
                                                         <a className="cta" href={"https://www.google.com/search?tbm=bks&q=" + book.title + " by " + book.author_name}>Find Out More</a>
                                                     </p>
                                         }
-                                        <button>Add To My Bookshelf</button>
+                                        < button onClick={() => { handleAddBook(book) }} > Add To My Bookshelf </button>
                                     </div>
                                 )
                             })

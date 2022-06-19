@@ -7,12 +7,15 @@ body {
   background: -moz-linear-gradient(top left, #FBD046, #EA7D4D);
   background: linear-gradient(to bottom right, #FBD046, #EA7D4D);
   color: #4B296B;
-  text-align: center;
   min-height: 100vh;
 }
 
 body, input[type=text] {
   font-family: 'Signika Negative', sans-serif;
+}
+
+header, form, .results {
+  text-align: center;
 }
 
 h1, h2, h3  {
@@ -37,6 +40,7 @@ h6 {
 .book-icon {
   scale: 200%;
 }
+
 
 .input-and-search {
   display: flex;

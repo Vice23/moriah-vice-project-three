@@ -1,6 +1,7 @@
 import './App.css';
 import Form from './Form.js'
 import DisplayBooks from './DisplayBooks.js'
+import UserBookshelf from './UserBookshelf.js'
 
 import axios from 'axios';
 import { useEffect, useState } from 'react';
@@ -64,13 +65,17 @@ function App() {
 
   return (
     <div className="wrapper">
+      <UserBookshelf />
+
       <header>
         <h1 className="heading">Book Buddy <span className="book-icon">📖</span> </h1>
       </header>
       
+      
       <Form className="form" handleSubmit={generateUserInput} />
       
       <DisplayBooks books={books} />
+
 
 
     </div>
