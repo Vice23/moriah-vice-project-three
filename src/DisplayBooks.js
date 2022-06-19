@@ -1,11 +1,13 @@
 import firebase from './firebase.js';
-import { getDatabase, push, ref } from "firebase/database";
+import { getDatabase, onValue, push, ref } from "firebase/database";
 
 import { useState, useEffect } from 'react';
 
 const DisplayBooks = (props) => {
     console.log('Rendered DisplayBooks component');
-    console.log(props);
+    // console.log(props);
+
+    
 
 
     // storing a book of interest in the database ('bookshelf')
