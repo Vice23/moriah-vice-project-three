@@ -40,7 +40,8 @@ const Form = (props) => {
                     <button >Search</button>
                     
                 </div>
-                <a href="https://openlibrary.org/search/howto">How to use advanced search</a>
+                <p>Want more search options? <a href="https://openlibrary.org/search/howto">Here's how to use the advanced search functions.</a></p>
+                
 
             </form>
         </section>

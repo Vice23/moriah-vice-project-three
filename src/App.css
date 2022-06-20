@@ -128,7 +128,7 @@ form button,
   justify-content: center;
   align-items: center;
   width: 100%;
-  margin: .5rem 0 2rem 0;
+
 }
 
 .input-and-search input {
@@ -140,6 +140,14 @@ form button,
 .input-and-search button {
   padding: .3rem 2rem;
   border: none;
+}
+
+form a{
+  margin: .5rem 0 2rem 0;
+}
+
+form a:hover, form a:focus {
+  color: white;
 }
 
 /* Book Display */
