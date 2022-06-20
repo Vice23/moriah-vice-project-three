@@ -24,6 +24,10 @@ form,
   text-align: center;
 }
 
+header {
+  margin-top: 20%;
+}
+
 h1,
 h2,
 h3 {
@@ -68,14 +72,15 @@ ul {
   padding-left: 45px;
   padding-right: 30px;
   border-radius: 5px;
-  margin-top: 5px;
-  /* position: absolute; */
+  left: 5px;
+  top: 5px;
+  position: absolute;
 }
 
 .bookshelf-btn::before {
   height: 38px;
   width: 50px;
-  left: 10%;
+  left: 6%;
   border-left:20px double rgba(255, 255, 255, 0.805);
   position: absolute;
   content: '';
@@ -91,7 +96,6 @@ ul {
 
 .remove-btn {
   font-family: 'Glegoo', serif;
-
   cursor: pointer;
   background-image: linear-gradient(to right top, #ff2100, #ff6500, #fc9000, #f5b600, #ebd812);
   

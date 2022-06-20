@@ -25,6 +25,7 @@ const Form = (props) => {
 
             >
                 <label htmlFor="userSearch">Search Books by Title:</label>
+                
 
                 <div className="input-and-search">
                     <input
@@ -34,9 +35,12 @@ const Form = (props) => {
                         value={searchValue}
                     >
                     </input>
+                    
 
                     <button >Search</button>
+                    
                 </div>
+                <a href="https://openlibrary.org/search/howto">How to use advanced search</a>
 
             </form>
         </section>

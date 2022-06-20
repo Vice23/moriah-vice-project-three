@@ -54,7 +54,7 @@ const UserBookshelf = () => {
             >
                 {
                     isDisplayed 
-                        ? 'Hide My Bookshelf'
+                        ? 'Hide Bookshelf'
                         : 'My Bookshelf'
                 }
 
