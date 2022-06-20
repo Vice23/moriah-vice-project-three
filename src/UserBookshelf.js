@@ -11,7 +11,6 @@ const UserBookshelf = () => {
     const [isDisplayed, setIsDisplayed] = useState(false);
 
     const handleClick = () => {
-
         setIsDisplayed(!isDisplayed);
     }
 
@@ -40,11 +39,8 @@ const UserBookshelf = () => {
     }, []);
 
     const handleRemoveBook = (bookKey) => {
-        console.log(bookKey);
 
         const database = getDatabase(firebase);
-
-        // best practice: use that / to tell the database to go there, but it's not always needed - just use it in case
         const dbRef = ref(database, `/${bookKey}`);
 
         remove(dbRef);
@@ -56,7 +52,12 @@ const UserBookshelf = () => {
                 className="bookshelf-btn"
                 onClick={handleClick}
             >
-                My Bookshelf
+                {
+                    isDisplayed 
+                        ? 'Hide My Bookshelf'
+                        : 'My Bookshelf'
+                }
+
             </button>
 
             {
@@ -94,7 +95,8 @@ const UserBookshelf = () => {
                                                 <p >
                                                     <a className="cta-bookshelf" href={"https://www.librarything.com/work/" + book.bookObject.id_librarything[0]}>Find Out More</a>
                                                 </p>
-                                                : <p >
+                                                : 
+                                                <p >
                                                     <a className="cta-bookshelf" href={"https://www.google.com/search?tbm=bks&q=" + book.bookObject.title + " by " + book.bookObject.author_name}>Find Out More</a>
                                                 </p>
                                     }

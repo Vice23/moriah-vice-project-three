@@ -6,10 +6,6 @@ import UserBookshelf from './UserBookshelf.js'
 import axios from 'axios';
 import { useEffect, useState } from 'react';
 
-// importing firebase components
-import firebase from './firebase.js'
-import { getDatabase, ref, onValue, push, remove } from 'firebase/database';
-
 function App() {
 
   console.log('App rendered');
@@ -75,8 +71,6 @@ function App() {
       <Form className="form" handleSubmit={generateUserInput} />
       
       <DisplayBooks books={books} />
-
-
 
     </div>
   );

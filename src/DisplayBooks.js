@@ -1,7 +1,6 @@
 import firebase from './firebase.js';
-import { getDatabase, onValue, push, ref } from "firebase/database";
+import { getDatabase, push, ref } from "firebase/database";
 
-import { useState, useEffect } from 'react';
 
 const DisplayBooks = (props) => {
     console.log('Rendered DisplayBooks component');
@@ -14,6 +13,8 @@ const DisplayBooks = (props) => {
     const handleAddBook = (bookObject) => {
         console.log("====handleAddBook in progress====");
         console.log(bookObject);
+
+        alert(`You have successfully added ${bookObject.title} to your shelf`)
 
         const database = getDatabase(firebase);
         const dbRef= ref(database);
