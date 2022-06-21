@@ -20,7 +20,6 @@ const UserBookshelf = () => {
 
         onValue(dbRef, (response) => {
             const data = response.val();
-            console.log(data);
 
             const newState = [];
 
@@ -34,7 +33,6 @@ const UserBookshelf = () => {
             };
 
             setBooks(newState);
-            console.log(newState);
         })
     }, []);
 

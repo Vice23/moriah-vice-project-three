@@ -3,7 +3,6 @@ import { useState } from 'react';
 
 
 const Form = (props) => {
-    console.log('form rendered');
 
     // initializing state to check when form has been changed
     const [searchValue, setSearchValue] = useState('');
@@ -28,7 +27,7 @@ const Form = (props) => {
                 
 
                 <div className="input-and-search">
-                    <input
+                    <input required
                         type="text" id="userSearch"
 
                         onChange={handleChange}

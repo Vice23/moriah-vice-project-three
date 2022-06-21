@@ -2,25 +2,28 @@ import './App.css';
 import Form from './Form.js'
 import DisplayBooks from './DisplayBooks.js'
 import UserBookshelf from './UserBookshelf.js'
+import LoadingSpinner from './LoadingSpinner';
 
 import axios from 'axios';
 import { useEffect, useState } from 'react';
 
 function App() {
 
-  console.log('App rendered');
-
   const [books, setBooks] = useState([]);
-
-  // piece of state to represent user input
   const [userInput, setUserInput] = useState(null);
+  const [isLoading, setIsLoading] = useState(false);
+  const [errorMessage, setErrorMessage] = useState("");
+  const [upArrow, setUpArrow] = useState(false);
 
 
   // side effect to call the API
   useEffect(() => {
     if (userInput && userInput !== null && userInput !== '') {
+      // put a truthy value on a loading function
+      setIsLoading(true);
+      setErrorMessage(null);
+      setUpArrow(false);
 
-    // put a truthy value on a loading function
     axios({
       baseURL: 'https://openlibrary.org/',
       url: '/search.json',
@@ -42,33 +45,24 @@ function App() {
         })
 
         setBooks(allBookInfo);
-        console.log(books);
+        setIsLoading(false);
+        setUserInput("");
+        setUpArrow(true);
 
-        // put a falsy value on the 'loading' function
       })
+      .catch(() => {
+        setErrorMessage("No results loaded. Please try again.");
+        setIsLoading(false);
+      });
     }
   }, [userInput, books])
-
-  // defining the function that will be passed as props to the Form 
-  // when the function is called - by Form -- it will update state
-
 
   // this event will handle the use clicking add book
   const generateUserInput = function(event, userInput) {
     // create event listener
     // prevent default refresh bahaviour
     event.preventDefault();
-
-    console.log("user input:", userInput);
-
-    // replace with loading function when ready
-    if(userInput && userInput !== '') {
-      alert(`You've requested results for '${userInput}'. Please wait while we load your results...`);
-      setUserInput(userInput);
-    } else {
-      alert(`You entered '${userInput}' - an invalid search. Please try again`);
-      setUserInput(userInput);
-    }
+    setUserInput(userInput);
     
   }
 
@@ -76,14 +70,35 @@ function App() {
     <div className="wrapper">
       <UserBookshelf />
 
-      <header>
+      <header id="header">
         <h1 className="heading">Book Buddy <span className="book-icon">📖</span> </h1>
       </header>
       
       
-      <Form className="form" handleSubmit={generateUserInput} />
-      <DisplayBooks books={books} />
+      <Form className="form" handleSubmit={generateUserInput} disabled={isLoading}/>
 
+      {
+        isLoading
+          ? <LoadingSpinner />
+          : null
+      }
+
+      {
+        errorMessage 
+        ? <p className="error">{errorMessage}</p>
+          : <DisplayBooks books={books} />
+      }
+      {
+        upArrow
+          ? <a className="upArrow" alt=" Back to Top" href='#header'>⬆️ </a>
+          : null
+      }
+
+      <footer>
+        <div className="wrapper">
+          <p>Created by Moriah at <a href="https://junocollege.com" >Juno College</a></p>
+        </div>
+      </footer>
     </div>
   );
 }

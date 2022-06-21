@@ -3,13 +3,9 @@ import { getDatabase, push, ref } from "firebase/database";
 import bookicon from './bookicon.png';
 
 const DisplayBooks = (props) => {
-    console.log('Rendered DisplayBooks component');
-    console.log(props);
 
     // storing a book of interest in the database ('bookshelf')
     const handleAddBook = (bookObject) => {
-        console.log("====handleAddBook in progress====");
-        console.log(bookObject);
 
         alert(`You have successfully added ${bookObject.title} to your shelf`)
 
