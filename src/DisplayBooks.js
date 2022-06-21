@@ -1,6 +1,6 @@
 import firebase from './firebase.js';
 import { getDatabase, push, ref } from "firebase/database";
-import Book from './Book.png';
+import bookicon from './bookicon.png';
 
 const DisplayBooks = (props) => {
     console.log('Rendered DisplayBooks component');
@@ -38,7 +38,7 @@ const DisplayBooks = (props) => {
                                         {
                                             (book.cover_image) ?
                                             <img className="book-cover" src={book.cover_image} alt={`Book cover for ${book.title}`} />
-                                                : <img className="book-cover icon" src={Book} alt={`Icon of stacked books. Book cover not available for ${book.title}`} />
+                                                : <img className="book-cover icon" src={bookicon} alt={`Icon of stacked books. Book cover not available for ${book.title}`} />
                                         }
                                         <h3>{book.title}</h3>
 

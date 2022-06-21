@@ -1,6 +1,6 @@
 import firebase from './firebase.js';
 import { getDatabase, onValue, remove, ref } from "firebase/database";
-import Book from './Book.png';
+import bookicon from './bookicon.png';
 import { useState, useEffect } from 'react';
 
 
@@ -75,7 +75,7 @@ const UserBookshelf = () => {
                                     {
                                         (book.bookObject.cover_image) ?
                                             <img className="book-cover" src={book.bookObject.cover_image} alt={`Book cover for ${book.title}`} />
-                                            : <img className="book-cover icon" src={Book} alt={`Icon of stacked books. Book cover not available for ${book.bookObject.title}`} />
+                                            : <img className="book-cover icon" src={bookicon} alt={`Icon of stacked books. Book cover not available for ${book.bookObject.title}`} />
                                     }
 
                                     <h3>{book.bookObject.title}</h3>
