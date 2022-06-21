@@ -31,7 +31,20 @@ function App() {
     })
       .then((jsonData) => {
         // take the data that is returned from the API and store it in state
-        setBooks(jsonData.data.docs);
+
+        // store the json data in a const
+
+        const allBookInfo = jsonData.data.docs;
+        allBookInfo.forEach( (book) => {
+          if (book.cover_i) {
+            book.cover_image = `https://covers.openlibrary.org/b/id/${book.cover_i}.jpg`;
+          } 
+          // else {
+          //   book.cover_image = "src/book.png";
+          // }
+        })
+
+        setBooks(allBookInfo);
         console.log(books);
       })
     }
@@ -69,7 +82,6 @@ function App() {
       
       
       <Form className="form" handleSubmit={generateUserInput} />
-      
       <DisplayBooks books={books} />
 
     </div>

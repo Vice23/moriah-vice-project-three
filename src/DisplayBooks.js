@@ -4,10 +4,7 @@ import { getDatabase, push, ref } from "firebase/database";
 
 const DisplayBooks = (props) => {
     console.log('Rendered DisplayBooks component');
-    // console.log(props);
-
-    
-
+    console.log(props);
 
     // storing a book of interest in the database ('bookshelf')
     const handleAddBook = (bookObject) => {
@@ -39,6 +36,12 @@ const DisplayBooks = (props) => {
                                         key={book.key}
                                     >
                                         <h3>{book.title}</h3>
+                                        {
+                                            (book.cover_image) ?
+                                            <img src={book.cover_image} alt={`Book cover for ${book.title}`} />
+                                                : <h3>No Cover Image</h3>
+                                        }
+
                                         {
                                             (book.author_name) ?
                                                 <h5>By: {book.author_name[0]}</h5>
