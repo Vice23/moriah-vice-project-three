@@ -16,7 +16,7 @@ const DisplayBooks = (props) => {
     }
 
     return (
-        <section className="results">
+        <section className="results wrapper">
             <h2>Results Below </h2>
             {
                 props.books.length === 0 ? (

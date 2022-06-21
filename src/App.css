@@ -3,6 +3,7 @@
 
 /* general styling */
 
+
 body {
   background: #FBD046;
   background: -webkit-linear-gradient(top left, #FBD046, #EA7D4D);
@@ -11,11 +12,16 @@ body {
   color: #4B296B;
   min-height: 100vh;
   font-size: 120%;
+  height: 100%;
 }
 
 body,
 input[type=text] {
   font-family: 'Signika Negative', sans-serif;
+}
+
+.main-content {
+  min-height: 100vh;
 }
 
 header,
@@ -302,7 +308,24 @@ form a:hover, form a:focus {
   }
 }
 
+/* Footer */
 
+footer {
+  background-color: #4B296B;
+  color: white;
+}
+
+footer p {
+  margin: 0;
+  padding: 10px 0;
+  text-align: center;
+  font-size: 0.6rem;
+}
+
+footer a {
+  color: white;
+  text-decoration: none;
+}
 
 /* Media Queries for smaller screens */
 

@@ -13,7 +13,7 @@ const Form = (props) => {
     }
 
     return (
-        <section>
+        <section className="wrapper">
             <form
                 action=""
                 onSubmit={

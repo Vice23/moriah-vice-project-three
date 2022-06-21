@@ -24,80 +24,80 @@ function App() {
       setErrorMessage(null);
       setUpArrow(false);
 
-    axios({
-      baseURL: 'https://openlibrary.org/',
-      url: '/search.json',
-      method: 'GET',
+      axios({
+        baseURL: 'https://openlibrary.org/',
+        url: '/search.json',
+        method: 'GET',
 
-      // API params defined
-      params: {
-        q: userInput,
-      }
-    })
-      .then((jsonData) => {
-        // take the data that is returned from the API and store it in state
-
-        const allBookInfo = jsonData.data.docs;
-        allBookInfo.forEach( (book) => {
-          if (book.cover_i) {
-            book.cover_image = `https://covers.openlibrary.org/b/id/${book.cover_i}.jpg`;
-          } 
-        })
-
-        setBooks(allBookInfo);
-        setIsLoading(false);
-        setUserInput("");
-        setUpArrow(true);
-
+        // API params defined
+        params: {
+          q: userInput,
+        }
       })
-      .catch(() => {
-        setErrorMessage("No results loaded. Please try again.");
-        setIsLoading(false);
-      });
+        .then((jsonData) => {
+          // take the data that is returned from the API and store it in state
+
+          const allBookInfo = jsonData.data.docs;
+          allBookInfo.forEach((book) => {
+            if (book.cover_i) {
+              book.cover_image = `https://covers.openlibrary.org/b/id/${book.cover_i}.jpg`;
+            }
+          })
+
+          setBooks(allBookInfo);
+          setIsLoading(false);
+          setUserInput("");
+          setUpArrow(true);
+
+        })
+        .catch(() => {
+          setErrorMessage("No results loaded. Please try again.");
+          setIsLoading(false);
+        });
     }
   }, [userInput, books])
 
   // this event will handle the use clicking add book
-  const generateUserInput = function(event, userInput) {
+  const generateUserInput = function (event, userInput) {
     // create event listener
     // prevent default refresh bahaviour
     event.preventDefault();
     setUserInput(userInput);
-    
+
   }
 
   return (
-    <div className="wrapper">
-      <UserBookshelf />
+    <div >
+      < div className="main-content">
+        <UserBookshelf />
 
-      <header id="header">
-        <h1 className="heading">Book Buddy <span className="book-icon">📖</span> </h1>
-      </header>
-      
-      
-      <Form className="form" handleSubmit={generateUserInput} disabled={isLoading}/>
+        <header id="header">
+          <h1 className="heading">Book Buddy <span className="book-icon">📖</span> </h1>
+        </header>
 
-      {
-        isLoading
-          ? <LoadingSpinner />
-          : null
-      }
 
-      {
-        errorMessage 
-        ? <p className="error">{errorMessage}</p>
-          : <DisplayBooks books={books} />
-      }
-      {
-        upArrow
-          ? <a className="upArrow" alt=" Back to Top" href='#header'>⬆️ </a>
-          : null
-      }
+        <Form className="form" handleSubmit={generateUserInput} disabled={isLoading} />
+
+        {
+          isLoading
+            ? <LoadingSpinner />
+            : null
+        }
+
+        {
+          errorMessage
+            ? <p className="error">{errorMessage}</p>
+            : <DisplayBooks books={books} />
+        }
+        {
+          upArrow
+            ? <a className="upArrow" alt=" Back to Top" href='#header'>⬆️ </a>
+            : null
+        }
+      </ div>
 
       <footer>
-        <div className="wrapper">
-          <p>Created by Moriah at <a href="https://junocollege.com" >Juno College</a></p>
-        </div>
+        <p>Created by Moriah at <a href="https://junocollege.com" >Juno College</a>. Book icon created by <a href="https://www.flaticon.com/free-icons/book" >mikan933 - Flaticon</a></p>
       </footer>
     </div>
   );
