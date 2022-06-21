@@ -19,6 +19,8 @@ function App() {
   // side effect to call the API
   useEffect(() => {
     if (userInput && userInput !== null && userInput !== '') {
+
+    // put a truthy value on a loading function
     axios({
       baseURL: 'https://openlibrary.org/',
       url: '/search.json',
@@ -32,20 +34,17 @@ function App() {
       .then((jsonData) => {
         // take the data that is returned from the API and store it in state
 
-        // store the json data in a const
-
         const allBookInfo = jsonData.data.docs;
         allBookInfo.forEach( (book) => {
           if (book.cover_i) {
             book.cover_image = `https://covers.openlibrary.org/b/id/${book.cover_i}.jpg`;
           } 
-          // else {
-          //   book.cover_image = "src/book.png";
-          // }
         })
 
         setBooks(allBookInfo);
         console.log(books);
+
+        // put a falsy value on the 'loading' function
       })
     }
   }, [userInput, books])
@@ -62,6 +61,7 @@ function App() {
 
     console.log("user input:", userInput);
 
+    // replace with loading function when ready
     if(userInput && userInput !== '') {
       alert(`You've requested results for '${userInput}'. Please wait while we load your results...`);
       setUserInput(userInput);

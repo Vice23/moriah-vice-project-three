@@ -32,6 +32,7 @@ h1,
 h2,
 h3 {
   font-family: 'Prompt', sans-serif;
+  margin: 0px;
 }
 
 
@@ -39,12 +40,19 @@ h4,
 h5,
 h6 {
   font-family: 'Glegoo', serif;
+  margin: 0px;
 }
 
 ul {
   list-style-type: none;
   margin: 0;
   padding: 0;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+  height: auto;
 }
 
 .wrapper {
@@ -158,16 +166,25 @@ form a:hover, form a:focus {
   padding: 5%;
   margin: 5%;
   border-radius: 10px;
+  display: flex;
+  flex-direction: column;
 }
-
 
 .search-results {
   display: flex;
   flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
 }
 
 .book-container {
   width: 30%;
+  
+}
+
+.book-cover {
+  max-height:300px;
+  align-self: center;
 }
 
 .cta {
