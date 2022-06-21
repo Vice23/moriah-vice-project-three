@@ -77,7 +77,7 @@ const UserBookshelf = () => {
                                             <img className="book-cover" src={book.bookObject.cover_image} alt={`Book cover for ${book.title}`} />
                                             : <img className="book-cover icon" src={bookicon} alt={`Icon of stacked books. Book cover not available for ${book.bookObject.title}`} />
                                     }
-
+                        
                                     <h3>{book.bookObject.title}</h3>
                                     {
                                         (book.bookObject.author_name) ?
