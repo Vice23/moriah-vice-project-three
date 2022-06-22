@@ -58,7 +58,7 @@ function App() {
   }, [userInput, books])
 
   // this event will handle the use clicking add book
-  const generateUserInput = function (event, userInput) {
+  const generateUserInput = (event, userInput) => {
     // create event listener
     // prevent default refresh bahaviour
     event.preventDefault();
