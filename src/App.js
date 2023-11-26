@@ -67,37 +67,45 @@ function App() {
   }
 
   return (
-    <div >
-      < div className="main-content">
+    <div>
+      <div className="main-content">
         <UserBookshelf />
 
         <header id="header">
-          <h1 className="heading">Book Buddy <span className="book-icon">📖</span> </h1>
+          <h1 className="heading" data-testid="heading">
+            Book Buddy <span className="book-icon">📖</span>{" "}
+          </h1>
         </header>
 
+        <Form
+          className="form"
+          handleSubmit={generateUserInput}
+          disabled={isLoading}
+        />
 
-        <Form className="form" handleSubmit={generateUserInput} disabled={isLoading} />
+        {isLoading ? <LoadingSpinner /> : null}
 
-        {
-          isLoading
-            ? <LoadingSpinner />
-            : null
-        }
-
-        {
-          errorMessage
-            ? <p className="error">{errorMessage}</p>
-            : <DisplayBooks books={books} />
-        }
-        {
-          upArrow
-            ? <a className="upArrow" alt=" Back to Top" href='#header'>⬆️ </a>
-            : null
-        }
-      </ div>
+        {errorMessage ? (
+          <p className="error">{errorMessage}</p>
+        ) : (
+          <DisplayBooks books={books} />
+        )}
+        {upArrow ? (
+          <a className="upArrow" alt=" Back to Top" href="#header">
+            ⬆️{" "}
+          </a>
+        ) : null}
+      </div>
 
       <footer>
-        <p>Created by Moriah at <a href="https://junocollege.com" >Juno College</a>. Book icon created by <a href="https://www.flaticon.com/free-icons/book" >mikan933 - Flaticon</a></p>
+        <p>
+          Created by Moriah at{" "}
+          <a href="https://junocollege.com">Juno College</a>. Book icon created
+          by{" "}
+          <a href="https://www.flaticon.com/free-icons/book">
+            mikan933 - Flaticon
+          </a>
+        </p>
       </footer>
     </div>
   );
